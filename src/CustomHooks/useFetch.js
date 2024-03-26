@@ -1,13 +1,13 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 
-export default function useFetch() {
+export default function useFetch(url) {
     const [apiData, setapiData] = useState(null);
     let [pending, setpending] = useState(true);
     let [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch("https://api.jikan.moe/v4/anime")
+        fetch(url)
             .then((response) => {
                 if (response.ok === false) {
                     throw Error("Searching data not found")
