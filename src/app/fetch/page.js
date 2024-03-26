@@ -16,21 +16,18 @@ export default function Page() {
 
   return (
     <div className="p-3">
-      <div className="flex gap-2">
-        <p>Hello</p>
-        <button onClick={handleClick}>Click</button>
-      </div>
       <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
         {apiData && apiData.map((anime, index) => {
           return (
-            <div className="flex flex-col items-center justify-center gap-2 p-2 rounded-lg bg-stone-800 ">
+            <div className="flex flex-col items-center justify-center gap-4 p-2 duration-200 ease-in rounded-lg hover:border-gray-400 bg-stone-800 hover:border-2 hover:scale-105">
               <Image
                 src={anime.images.jpg.image_url}
                 alt="Anime Image"
-                width={200}
-                height={300}
+                width={150}
+                height={250}
                 priority
               // layout="fit"
+              className="duration-300 ease-in-out hover:scale-110"
               />
               <div>
                 <Card key={anime.name} anime={anime} />
