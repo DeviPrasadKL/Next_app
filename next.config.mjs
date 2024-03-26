@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // images: {
-    //     domains: ['myanimelist.net'],
+    //     domains: ['myanimelist.net', 'cdn.myanimelist.net'],
     //   },
     
     images: {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'myanimelist.net',
+                hostname: "cdn.myanimelist.net",
                 port: '',
             },
         ],

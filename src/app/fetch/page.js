@@ -2,6 +2,7 @@
 
 import useFetch from "@/CustomHooks/useFetch";
 import Card from "./Card";
+import Image from "next/image";
 
 export default function Page() {
 
@@ -15,13 +16,25 @@ export default function Page() {
 
   return (
     <div className="p-3">
-      Hello <br />
-      <button onClick={handleClick}>Click</button>
+      <div className="flex gap-2">
+        <p>Hello</p>
+        <button onClick={handleClick}>Click</button>
+      </div>
       <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
         {apiData && apiData.map((anime, index) => {
           return (
-            <div  className="p-2 bg-slate-600">
-              <Card key={anime.name} anime={anime} />
+            <div className="flex flex-col items-center justify-center gap-2 p-2 rounded-lg bg-stone-800 ">
+              <Image
+                src={anime.images.jpg.image_url}
+                alt="Anime Image"
+                width={200}
+                height={300}
+                priority
+              // layout="fit"
+              />
+              <div>
+                <Card key={anime.name} anime={anime} />
+              </div>
             </div>
           )
         })}
