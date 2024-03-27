@@ -16,15 +16,15 @@ export default function page({ params }) {
           // layout="fit"
           className="duration-300 ease-in-out hover:scale-110"
         />
-        <p className="flex gap-2"><p>Name :-</p> <span>{apiData.title}</span></p>
-        <p className="flex gap-2"><p>Rating :-</p> <span>{apiData.rating}</span></p>
-        <p className="flex gap-2"><p>Popularity :-</p> <span>{apiData.popularity}</span></p>
-        <p className="flex gap-2"><p>Broadcast :-</p>
-          <span>{apiData.broadcast.string}</span>
-        </p>
-        <p className="flex w-3/4 gap-2"><p>Background:-</p> <span>{apiData.background}</span></p>
-        <p className="flex w-3/4 gap-2"><p>Synopsis:-</p> <span>{apiData.synopsis}</span></p>
-        {apiData.trailer.embed_url && <p className="flex gap-2"><p>Trailer :-</p> <span>{apiData.trailer.embed_url}</span></p>}
+        <p className="flex gap-2"><p>Name :-</p> <span className="text-orange-500">{apiData.title}</span></p>
+        <p className="flex gap-2"><p>Rating :-</p> <span className="text-yellow-500">{apiData.rating}</span></p>
+        <p className="flex gap-2"><p>Popularity :-</p> <span className="text-lime-500">{apiData.popularity}</span></p>
+        {apiData.broadcast.string && <p className="flex gap-2"><p>Broadcast :-</p>
+          <span className="text-lime-400">{apiData.broadcast.string}</span>
+        </p>}
+        {apiData.background && <p className="flex w-3/4 gap-2"><p>Background:-</p> <span className="text-lime-300">{apiData.background}</span></p>}
+        {apiData.synopsis && <p className="flex w-3/4 gap-2"><p>Synopsis:-</p> <span className="text-lime-200">{apiData.synopsis}</span></p>}
+        {apiData.trailer.embed_url && <p className="flex gap-2"><p>Trailer :-</p> <a href={apiData.trailer.embed_url} target="_blank" className="text-blue-400">{apiData.trailer.embed_url}</a></p>}
       </div>}
     </>
   )

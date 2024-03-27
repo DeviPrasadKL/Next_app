@@ -16,12 +16,12 @@ export default function Page() {
           return (
             <Link href={`/fetch/${anime.mal_id}`} key={anime.mal_id} className="flex flex-col items-center justify-center gap-4 p-2 duration-200 ease-in rounded-lg hover:border-gray-400 bg-stone-800 hover:border-2 hover:scale-105">
               <Image
+                className="duration-300 ease-in-out hover:scale-110"
                 src={anime.images.jpg.image_url}
                 alt="Anime Image"
-                width={150}
                 height={250}
+                width={150}
                 // layout="fit"
-                className="duration-300 ease-in-out hover:scale-110"
               />
               <div>
                 <Card anime={anime} />
@@ -30,5 +30,6 @@ export default function Page() {
           )
         })}
       </div>
-    </div>)
+    </div>
+  )
 }
