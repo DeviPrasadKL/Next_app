@@ -14,7 +14,7 @@ export default function useFetch(url) {
                 }
                 return response.json()
             })
-            .then((datas) => { setapiData(datas.data); setpending(false) })
+            .then((data) => { setapiData(data); setpending(false) })
             .catch((err) => { setError(err.message) })
     }, []);
   return [apiData, pending, error];

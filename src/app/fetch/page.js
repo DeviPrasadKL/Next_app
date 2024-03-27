@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <div className="p-3">
       <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-        {apiData && apiData.map((anime, index) => {
+        {apiData && apiData.data.map((anime, index) => {
           return (
             <Link href={`/fetch/${anime.mal_id}`} key={anime.mal_id} className="flex flex-col items-center justify-center gap-4 p-2 duration-200 ease-in rounded-lg hover:border-gray-400 bg-stone-800 hover:border-2 hover:scale-105">
               <Image
