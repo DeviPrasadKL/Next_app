@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // images: {
-    //     domains: ['myanimelist.net', 'cdn.myanimelist.net'],
-    //   },
-    
     images: {
         remotePatterns: [
             {
