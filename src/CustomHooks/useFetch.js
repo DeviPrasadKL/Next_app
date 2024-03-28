@@ -16,6 +16,6 @@ export default function useFetch(url) {
             })
             .then((data) => { setapiData(data); setpending(false) })
             .catch((err) => { setError(err.message) })
-    }, []);
+    }, [url]);
   return [apiData, pending, error];
 }
