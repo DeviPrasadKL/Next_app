@@ -1,9 +1,10 @@
 "use client"
 
 import useFetch from '@/CustomHooks/useFetch';
+import axios from 'axios';
 import React, { useState } from 'react'
 
-export default function page() {
+export default function Page() {
 
     const [show, setShow] = useState(false);
 
