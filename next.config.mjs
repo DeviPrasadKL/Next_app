@@ -1,17 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
     images: {
         domains: ['cdn.myanimelist.net', 'myanimelist.net'],
       },
-    // images: {
-    //     remotePatterns: [
-    //         {
-    //             protocol: 'https',
-    //             hostname: "cdn.myanimelist.net",
-    //             port: '',
-    //         },
-    //     ],
-    // },
 };
 
 export default nextConfig;
