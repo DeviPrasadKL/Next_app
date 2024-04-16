@@ -1,13 +1,13 @@
 "use client"
 
-import useFetch from "@/CustomHooks/useFetch";
+import UseFetch from "@/CustomHooks/useFetch";
 import Card from "./Card";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
 
-  const [apiData, pending, error] = useFetch("https://api.jikan.moe/v4/anime");
+  const [apiData, pending, error] = UseFetch("https://api.jikan.moe/v4/anime");
 
   return (
     <div className="p-3">

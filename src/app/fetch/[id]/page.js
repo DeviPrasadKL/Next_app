@@ -1,5 +1,5 @@
 "use client"
-import useFetch from "@/CustomHooks/useFetch";
+import useFetch from "@/CustomHooks/UseFetch";
 import Image from "next/image";
 
 export default function page({ params }) {

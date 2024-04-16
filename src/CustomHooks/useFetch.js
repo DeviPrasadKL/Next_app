@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 
-export default function useFetch(url) {
+export default function UseFetch(url) {
     const [apiData, setapiData] = useState(null);
     let [pending, setpending] = useState(true);
     let [error, setError] = useState(null);

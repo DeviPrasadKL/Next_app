@@ -1,6 +1,6 @@
 "use client"
 
-import useFetch from '@/CustomHooks/useFetch';
+import UseFetch from '@/CustomHooks/useFetch';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
@@ -41,7 +41,7 @@ export default function Page() {
 }
 
 function Left({ show, setShowUpdate, showUpdate, setShowNotification, setId }) {
-    const [apiData, pending] = useFetch("https://jsonplaceholder.typicode.com/posts")
+    const [apiData, pending] = UseFetch("https://jsonplaceholder.typicode.com/posts")
 
     const handleEdit = (id) => {
         setShowUpdate(true);
