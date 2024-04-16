@@ -1,9 +1,9 @@
 "use client"
-import useFetch from "@/CustomHooks/UseFetch";
+import UseFetch from "@/CustomHooks/useFetch";
 import Image from "next/image";
 
 export default function page({ params }) {
-  const [apiData, pending] = useFetch(`https://api.jikan.moe/v4/anime/${params.id}`);
+  const [apiData, pending] = UseFetch(`https://api.jikan.moe/v4/anime/${params.id}`);
 
   return (
     <>
