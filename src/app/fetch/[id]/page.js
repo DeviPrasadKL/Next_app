@@ -1,9 +1,23 @@
 "use client"
-import UseFetch from "@/CustomHooks/useFetch";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function page({ params }) {
-  const [apiData, pending] = UseFetch(`https://api.jikan.moe/v4/anime/${params.id}`);
+  const [apiData, setapiData] = useState(null);
+  const [pending, setpending] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://api.jikan.moe/v4/anime/${params.id}`)
+      .then((response) => {
+        if (response.ok === false) {
+          throw Error("Searching data not found")
+        }
+        return response.json()
+      })
+      .then((data) => { setapiData(data); setpending(false) })
+      .catch((err) => { setError(err.message) })
+  }, []);
 
   return (
     <>

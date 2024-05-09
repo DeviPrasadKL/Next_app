@@ -1,13 +1,27 @@
 "use client"
 
-import UseFetch from "@/CustomHooks/useFetch";
 import Card from "./Card";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Page() {
 
-  const [apiData, pending, error] = UseFetch("https://api.jikan.moe/v4/anime");
+  const [apiData, setapiData] = useState(null);
+  const [pending, setpending] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.jikan.moe/v4/anime")
+      .then((response) => {
+        if (response.ok === false) {
+          throw Error("Searching data not found")
+        }
+        return response.json()
+      })
+      .then((data) => { setapiData(data); setpending(false) })
+      .catch((err) => { setError(err.message) })
+  }, []);
 
   return (
     <div className="p-3">
@@ -21,7 +35,7 @@ export default function Page() {
                 alt="Anime Image"
                 height={250}
                 width={150}
-                // layout="fit"
+              // layout="fit"
               />
               <div>
                 <Card anime={anime} />

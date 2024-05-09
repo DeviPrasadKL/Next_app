@@ -1,6 +1,5 @@
 "use client"
 
-import UseFetch from '@/CustomHooks/useFetch';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
@@ -41,8 +40,23 @@ export default function Page() {
 }
 
 function Left({ show, setShowUpdate, showUpdate, setShowNotification, setId }) {
-    const [apiData, pending] = UseFetch("https://jsonplaceholder.typicode.com/posts")
 
+    const [apiData, setapiData] = useState(null);
+    const [pending, setpending] = useState(true);
+    const [error, setError] = useState(null);
+  
+    useEffect(() => {
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => {
+          if (response.ok === false) {
+            throw Error("Searching data not found")
+          }
+          return response.json()
+        })
+        .then((data) => { setapiData(data); setpending(false) })
+        .catch((err) => { setError(err.message) })
+    }, []);
+    
     const handleEdit = (id) => {
         setShowUpdate(true);
         setId(id);
