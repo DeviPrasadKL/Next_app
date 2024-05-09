@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import { getById, updatePosts } from '../../../../lib/data';
+import { deletePosts, getById, updatePosts } from '../../../../lib/data';
 
 export async function GET(request) {
     const cookieStore = cookies()
