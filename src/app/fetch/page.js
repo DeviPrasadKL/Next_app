@@ -1,5 +1,6 @@
 "use client"
 
+import axios from "axios";
 import Card from "./Card";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +22,16 @@ export default function Page() {
       })
       .then((data) => { setapiData(data); setpending(false) })
       .catch((err) => { setError(err.message) })
+
+    console.log(fetchApi());
+
   }, []);
+
+  const fetchApi = async () => {
+    axios.get("http://localhost:3000/api")
+      .then((res) => { console.log(res.data); })
+      .catch((err) => { setError(err.message) })
+  }
 
   return (
     <div className="p-3">
